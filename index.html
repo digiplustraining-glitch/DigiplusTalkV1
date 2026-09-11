@@ -55,7 +55,7 @@ const COLORS = {
   redSoft: "#C81E3A",
   danger: "#8B0A1A",
 };
-const CATEGORIES = ["Kamera", "Baterai", "Performa", "Layar", "Desain", "Durability", "Fitur AI", "Wellness", "Activity", "Hygene Features"];
+const CATEGORIES = ["Kamera", "Baterai", "Performa", "Layar", "Desain", "Harga", "Lainnya"];
 const uid = () => `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;
 
 function IconBase({ children, size = 18, style, className }) {
@@ -94,38 +94,235 @@ const SEED = {
     { id: "b8", name: "Amazfit", color: "#FF5A1F" },
   ],
   models: [
-    { id: "m1", brandId: "b1", name: "Galaxy A55", images: [] },
-    { id: "m2", brandId: "b1", name: "Galaxy S24", images: [] },
-    { id: "m3", brandId: "b2", name: "iPhone 15", images: [] },
-    { id: "m4", brandId: "b2", name: "iPhone 15 Pro", images: [] },
-    { id: "m5", brandId: "b3", name: "Redmi Note 13", images: [] },
-    { id: "m6", brandId: "b3", name: "Poco X6", images: [] },
+    // Samsung
+    { id: "m1", brandId: "b1", name: "Galaxy S26 Ultra", images: [] },
+    { id: "m2", brandId: "b1", name: "Galaxy Fold 8 Ultra", images: [] },
+    { id: "m3", brandId: "b1", name: "Galaxy Fold 8", images: [] },
+    { id: "m4", brandId: "b1", name: "Galaxy Flip 8", images: [] },
+    { id: "m5", brandId: "b1", name: "Galaxy A57 5G", images: [] },
+    { id: "m6", brandId: "b1", name: "Galaxy A37 5G", images: [] },
+    { id: "m7", brandId: "b1", name: "Galaxy A27", images: [] },
+    { id: "m8", brandId: "b1", name: "Galaxy A17", images: [] },
+    { id: "m9", brandId: "b1", name: "Galaxy A07", images: [] },
+    { id: "m10", brandId: "b1", name: "Galaxy Watch 9", images: [] },
+    { id: "m11", brandId: "b1", name: "Galaxy Watch 9 Ultra", images: [] },
+    { id: "m12", brandId: "b1", name: "Galaxy Buds 4 Pro", images: [] },
+    // Apple
+    { id: "m13", brandId: "b2", name: "iPhone 17 Pro Max", images: [] },
+    { id: "m14", brandId: "b2", name: "iPhone 17 Pro", images: [] },
+    { id: "m15", brandId: "b2", name: "iPhone Air", images: [] },
+    { id: "m16", brandId: "b2", name: "iPhone 17", images: [] },
+    { id: "m17", brandId: "b2", name: "iPhone 17e", images: [] },
+    { id: "m18", brandId: "b2", name: "iPhone 16", images: [] },
+    { id: "m19", brandId: "b2", name: "iPhone 15", images: [] },
+    { id: "m20", brandId: "b2", name: "Apple Watch Ultra 3", images: [] },
+    { id: "m21", brandId: "b2", name: "Apple Watch S11", images: [] },
+    { id: "m22", brandId: "b2", name: "Apple Watch SE3", images: [] },
+    { id: "m23", brandId: "b2", name: "Macbook Pro M5", images: [] },
+    { id: "m24", brandId: "b2", name: "Macbook Air M5", images: [] },
+    { id: "m25", brandId: "b2", name: "Macbook Neo", images: [] },
+    { id: "m26", brandId: "b2", name: "iPad Pro M5", images: [] },
+    { id: "m27", brandId: "b2", name: "iPad Air M5", images: [] },
+    { id: "m28", brandId: "b2", name: "iPad A16", images: [] },
+    { id: "m29", brandId: "b2", name: "iPad Mini A17 Pro", images: [] },
+    // Xiaomi
+    { id: "m30", brandId: "b3", name: "Xiaomi 17 Ultra", images: [] },
+    { id: "m31", brandId: "b3", name: "Xiaomi 17", images: [] },
+    { id: "m32", brandId: "b3", name: "Redmi Note 15 Pro+ 5G", images: [] },
+    { id: "m33", brandId: "b3", name: "Redmi Note 15 Pro 5G", images: [] },
+    { id: "m34", brandId: "b3", name: "Redmi Note 15 5G", images: [] },
+    { id: "m35", brandId: "b3", name: "Redmi Note 15 4G", images: [] },
+    // Oppo
+    { id: "m36", brandId: "b4", name: "Find X9 Ultra", images: [] },
+    { id: "m37", brandId: "b4", name: "Oppo Find X9s", images: [] },
+    { id: "m38", brandId: "b4", name: "Oppo Reno16 Pro 5G", images: [] },
+    { id: "m39", brandId: "b4", name: "Oppo Reno16 5G", images: [] },
+    { id: "m40", brandId: "b4", name: "Oppo Reno 16F", images: [] },
+    // Huawei
+    { id: "m41", brandId: "b5", name: "Pura 80 Ultra", images: [] },
+    { id: "m42", brandId: "b5", name: "Mate 80 Pro", images: [] },
+    { id: "m43", brandId: "b5", name: "Nova 14 Pro", images: [] },
+    // Motorola
+    { id: "m44", brandId: "b7", name: "Razr Fold", images: [] },
+    { id: "m45", brandId: "b7", name: "Edge 70 Fusion", images: [] },
+    { id: "m46", brandId: "b7", name: "Razr 60", images: [] },
+    { id: "m47", brandId: "b7", name: "G06 Power", images: [] },
+    // Infinix
+    { id: "m48", brandId: "b6", name: "Note 60 Pro", images: [] },
+    { id: "m49", brandId: "b6", name: "Note Edge", images: [] },
+    { id: "m50", brandId: "b6", name: "Xpad 30E", images: [] },
+    // Amazfit
+    { id: "m51", brandId: "b8", name: "Balance 3", images: [] },
+    { id: "m52", brandId: "b8", name: "Active 3 Premium", images: [] },
+    { id: "m53", brandId: "b8", name: "T-Rex 3", images: [] },
   ],
   points: [
-    { id: "p1", modelId: "m1", category: "Kamera", point: "OIS di kamera utama, hasil foto stabil walau tangan sedikit goyang", talk: "Buat yang suka foto sambil jalan atau rekam anak main, ini nggak gampang blur, Pak/Bu." },
-    { id: "p2", modelId: "m1", category: "Baterai", point: "Baterai 5000mAh, tahan pemakaian seharian penuh", talk: "Dari berangkat kerja pagi sampai pulang malam, biasanya masih sisa banyak." },
-    { id: "p3", modelId: "m1", category: "Layar", point: "Layar Super AMOLED terang, nyaman dilihat di luar ruangan", talk: "Coba lihat sendiri, Mas, kelihatan jelas walau kena sinar matahari langsung." },
-    { id: "p4", modelId: "m1", category: "Desain", point: "Sudah IP67, tahan debu dan cipratan air", talk: "Kalau kesenggol air atau kena hujan rintik, aman, nggak perlu panik." },
-    { id: "p5", modelId: "m2", category: "Performa", point: "Chipset flagship, lancar untuk multitasking dan gaming berat", talk: "Ini yang paling kencang di kelasnya, main game berat pun nggak nge-lag." },
-    { id: "p6", modelId: "m2", category: "Kamera", point: "Zoom optik jernih sampai jarak jauh", talk: "Suka motret dari jauh, konser atau acara, hasilnya tetap tajam." },
-    { id: "p7", modelId: "m2", category: "Layar", point: "Refresh rate adaptif sampai 120Hz", talk: "Scroll medsos jadi lebih halus, mata juga nggak cepat lelah." },
-    { id: "p8", modelId: "m2", category: "Harga", point: "Termasuk garansi resmi SEIN 1 tahun", talk: "Kalau ada kendala, servisnya gampang, resmi dari Samsung." },
-    { id: "p9", modelId: "m3", category: "Kamera", point: "Kamera utama 48MP, hasil foto tetap detail meski di-crop", talk: "Fotonya bisa di-zoom belakangan tanpa pecah, praktis buat konten." },
-    { id: "p10", modelId: "m3", category: "Performa", point: "Chip A16, tetap gesit dipakai bertahun-tahun", talk: "iPhone ini nggak gampang lemot walau dipakai lama." },
-    { id: "p11", modelId: "m3", category: "Layar", point: "Dynamic Island menampilkan notifikasi dan aktivitas secara ringkas", talk: "Notifikasi kelihatan langsung di atas layar, nggak perlu buka aplikasi." },
-    { id: "p12", modelId: "m3", category: "Desain", point: "Port USB-C, satu kabel untuk semua perangkat Apple terbaru", talk: "Sekarang charger-nya sama kayak MacBook atau iPad terbaru, nggak perlu bawa banyak kabel." },
-    { id: "p13", modelId: "m4", category: "Performa", point: "Chip A17 Pro, salah satu yang terkencang di pasaran", talk: "Buat yang kerja edit video atau main game berat, ini pilihan paling aman." },
-    { id: "p14", modelId: "m4", category: "Kamera", point: "Kamera telefoto 3x, lebih fleksibel untuk zoom", talk: "Zoom-nya lebih jauh dan tetap tajam dibanding iPhone biasa." },
-    { id: "p15", modelId: "m4", category: "Desain", point: "Rangka titanium, lebih ringan dari seri Pro sebelumnya", talk: "Dipegang kerasa lebih ringan tapi tetap kokoh." },
-    { id: "p16", modelId: "m4", category: "Harga", point: "Bonus tempered glass dan case original dari toko", talk: "Ada bonus pelindung layar dan case langsung dari kami, nggak perlu beli lagi." },
-    { id: "p17", modelId: "m5", category: "Harga", point: "Harga paling terjangkau di kelas kamera 108MP", talk: "Ini best value, Pak, kamera bagus tapi harganya paling ramah di kantong." },
-    { id: "p18", modelId: "m5", category: "Baterai", point: "Fast charging 33W, ngecas cepat", talk: "Ngecas 30 menit udah lumayan penuh, cocok yang suka buru-buru." },
-    { id: "p19", modelId: "m5", category: "Layar", point: "Sudah pakai panel AMOLED, jarang ada di harga segini", talk: "Biasanya AMOLED cuma ada di HP yang lebih mahal, ini udah dapat." },
-    { id: "p20", modelId: "m5", category: "Desain", point: "Sudah IP54, tahan cipratan", talk: "Aman kalau kena keringat atau gerimis dikit." },
-    { id: "p21", modelId: "m6", category: "Performa", point: "Chipset kelas menengah atas, kuat untuk gaming", talk: "Buat yang doyan main game berat, ini nggak seret." },
-    { id: "p22", modelId: "m6", category: "Layar", point: "Refresh rate 120Hz dengan sertifikasi Dolby Vision", talk: "Nonton film atau main game, kelihatan lebih halus dan warnanya bagus." },
-    { id: "p23", modelId: "m6", category: "Baterai", point: "Fast charging 67W", talk: "Ngecas dari kosong ke penuh cuma butuh sekitar setengah jam." },
-    { id: "p24", modelId: "m6", category: "Harga", point: "Spek flagship killer, value tertinggi di kelasnya", talk: "Spek segini biasanya HP-nya lebih mahal, ini worth it banget." },
+    // Samsung Galaxy S26 Ultra
+    { id: "p1", modelId: "m1", category: "Kamera", point: "Kamera 200MP dengan zoom yang tetap tajam sampai jarak jauh", talk: "Foto konser atau acara dari bangku belakang pun hasilnya masih detail, Pak/Bu." },
+    { id: "p2", modelId: "m1", category: "Performa", point: "Chipset flagship terbaru, gesit untuk multitasking berat dan AI", talk: "Buat kerja bolak-balik aplikasi atau main game berat, ini nggak nge-lag sama sekali." },
+    { id: "p3", modelId: "m1", category: "Desain", point: "Bodi titanium dengan layar flat anti-silau", talk: "Dipegang kokoh tapi tetap ringan, dan nggak gampang silau kena matahari." },
+    // Samsung Galaxy Fold 8 Ultra
+    { id: "p4", modelId: "m2", category: "Desain", point: "HP lipat paling tipis dari Samsung, lipatan di tengah layar nyaris tak terlihat", talk: "Dilipat tetap ramping banget, dibuka jadi layar lebar kayak tablet, Bu." },
+    { id: "p5", modelId: "m2", category: "Kamera", point: "Kamera flagship setara S26 Ultra dengan kualitas foto terbaik Samsung", talk: "Meski bentuknya lipat, hasil fotonya nggak kalah sama seri Ultra biasa." },
+    { id: "p6", modelId: "m2", category: "Layar", point: "Layar dalam luas untuk multitasking dua aplikasi sekaligus", talk: "Buka WhatsApp dan email bareng dalam satu layar, kerja jadi lebih cepat, Pak." },
+    // Samsung Galaxy Fold 8
+    { id: "p7", modelId: "m3", category: "Desain", point: "Bodi mirip paspor, makin compact dan ringan saat dilipat", talk: "Masuk kantong atau tas kecil masih muat, tapi begitu dibuka lega banget." },
+    { id: "p8", modelId: "m3", category: "Layar", point: "Layar dalam rasio 4:3 mirip tablet mini saat dibuka", talk: "Nonton atau baca dokumen jadi lebih nyaman, Mas, kayak pakai tablet." },
+    // Samsung Galaxy Flip 8
+    { id: "p9", modelId: "m4", category: "Desain", point: "Desain clamshell stylish dan portable, muat di saku kecil sekalipun", talk: "Buat yang suka tampil beda, model lipat kotak ini jadi statement fashion sendiri, Bu." },
+    { id: "p10", modelId: "m4", category: "Layar", point: "Layar cover luar bisa dipakai tanpa perlu buka lipatan", talk: "Cek notifikasi atau foto selfie cukup dari layar luar, praktis." },
+    // Samsung Galaxy A57 5G
+    { id: "p11", modelId: "m5", category: "Layar", point: "Layar AMOLED besar dengan Galaxy AI yang makin personal", talk: "Nonton dan edit foto pakai fitur AI-nya jadi lebih gampang, Mas." },
+    { id: "p12", modelId: "m5", category: "Baterai", point: "Baterai besar, tahan dipakai seharian penuh", talk: "Dari pagi berangkat sampai malam pulang, masih aman baterainya." },
+    // Samsung Galaxy A37 5G
+    { id: "p13", modelId: "m6", category: "Performa", point: "Performa dan kamera lebih baik dari seri A di bawahnya", talk: "Buat kerja dan hiburan sehari-hari, ini sudah pas banget, Bu." },
+    { id: "p14", modelId: "m6", category: "Harga", point: "Value terbaik di kelas mid-range Samsung", talk: "Merek Samsung tapi harganya masih ramah di kantong, Pak." },
+    // Samsung Galaxy A27
+    { id: "p15", modelId: "m7", category: "Layar", point: "Sudah 5G dengan layar AMOLED dan baterai besar", talk: "Internetnya udah kencang, layarnya juga enak dipandang." },
+    { id: "p16", modelId: "m7", category: "Baterai", point: "Baterai besar untuk pemakaian aktif harian", talk: "Dipakai kerja dan main sosial media seharian masih kuat, Mas." },
+    // Samsung Galaxy A17
+    { id: "p17", modelId: "m8", category: "Harga", point: "5G dengan harga terjangkau, layar AMOLED dan baterai besar", talk: "Ini pilihan hemat kalau mau Samsung 5G tapi budget terbatas, Bu." },
+    { id: "p18", modelId: "m8", category: "Baterai", point: "Baterai besar, awet untuk pemakaian harian", talk: "Nggak perlu khawatir baterai boros meski dipakai seharian." },
+    // Samsung Galaxy A07
+    { id: "p19", modelId: "m9", category: "Harga", point: "Samsung 5G termurah, cocok untuk HP pertama", talk: "Ini pilihan paling hemat kalau baru mau coba Samsung 5G, Pak." },
+    { id: "p20", modelId: "m9", category: "Baterai", point: "Baterai 6000mAh, tahan dipakai lama", talk: "Baterainya jumbo buat ukuran HP entry, awet banget dipakai harian." },
+    // Samsung Galaxy Watch 9
+    { id: "p21", modelId: "m10", category: "Performa", point: "Chip Snapdragon Wear Elite dengan AI kesehatan di pergelangan tangan", talk: "Fitur pantau kesehatannya makin lengkap dan pintar, Bu." },
+    { id: "p22", modelId: "m10", category: "Baterai", point: "Baterai lebih besar dari generasi sebelumnya, isi 50% hanya 10 menit", talk: "Ngecas sebentar sebelum berangkat udah cukup buat seharian." },
+    // Samsung Galaxy Watch 9 Ultra
+    { id: "p23", modelId: "m11", category: "Layar", point: "Layar hingga 5000 nits, tetap kebaca jelas di bawah matahari terik", talk: "Dipakai olahraga outdoor siang bolong pun layarnya tetap jelas, Mas." },
+    { id: "p24", modelId: "m11", category: "Desain", point: "Bodi tangguh standar militer, cocok untuk aktivitas ekstrem", talk: "Mau hiking atau lari trail, jam ini nggak gampang rusak." },
+    // Samsung Galaxy Buds 4 Pro
+    { id: "p25", modelId: "m12", category: "Lainnya", point: "Kontrol gesture kepala untuk angkat atau tolak telepon", talk: "Lagi bawa barang, tinggal angguk buat jawab telepon, praktis banget, Bu." },
+    { id: "p26", modelId: "m12", category: "Desain", point: "Desain canal dengan dual driver untuk suara lebih detail", talk: "Kualitas suaranya lebih jernih dibanding earbud Samsung sebelumnya." },
+    // iPhone 17 Pro Max
+    { id: "p27", modelId: "m13", category: "Kamera", point: "Kamera telefoto Fusion 48MP dengan zoom optik hingga 8x", talk: "Zoom jauh tetap tajam, cocok buat foto momen dari jarak jauh, Pak." },
+    { id: "p28", modelId: "m13", category: "Performa", point: "Chip A19 Pro, performa tertinggi di lini iPhone saat ini", talk: "Main game berat atau edit video 4K, semua lancar tanpa nge-lag." },
+    { id: "p29", modelId: "m13", category: "Baterai", point: "Baterai paling awet di antara semua iPhone", talk: "Cocok buat yang jarang sempat ngecas siang hari, Bu." },
+    // iPhone 17 Pro
+    { id: "p30", modelId: "m14", category: "Kamera", point: "Kamera triple 48MP dengan hasil detail di segala kondisi cahaya", talk: "Motret siang atau malam, hasilnya tetap tajam dan jernih." },
+    { id: "p31", modelId: "m14", category: "Performa", point: "Chip A19 Pro dengan bodi lebih ringkas dari Pro Max", talk: "Performa flagship tapi ukurannya lebih pas digenggam satu tangan, Mas." },
+    // iPhone Air
+    { id: "p32", modelId: "m15", category: "Desain", point: "Desain paling tipis dalam sejarah iPhone", talk: "Digenggam beda banget rasanya, tipis tapi tetap kokoh, Bu." },
+    { id: "p33", modelId: "m15", category: "Performa", point: "Chip A19 Pro dengan dukungan penuh Apple Intelligence", talk: "Fitur AI Apple-nya jalan mulus meski bodinya super tipis." },
+    // iPhone 17
+    { id: "p34", modelId: "m16", category: "Kamera", point: "Kamera ganda 48MP dengan hasil komputasional lebih baik", talk: "Buat konten sosial media, hasil fotonya udah bagus banget, Mas." },
+    { id: "p35", modelId: "m16", category: "Baterai", point: "Fast charging 40W dan USB-C, satu kabel untuk semua perangkat Apple", talk: "Ngecas lebih cepat dan nggak perlu bawa banyak kabel lagi, Pak." },
+    // iPhone 17e
+    { id: "p36", modelId: "m17", category: "Harga", point: "Cara termurah masuk ke lini iPhone 17 dengan chip terbaru", talk: "Ini pilihan pas kalau mau iPhone baru tapi budget lebih hemat, Bu." },
+    { id: "p37", modelId: "m17", category: "Kamera", point: "Kamera utama 48MP dengan performa chip A19", talk: "Hasil fotonya tetap oke meski harganya paling terjangkau di seri 17." },
+    // iPhone 16
+    { id: "p38", modelId: "m18", category: "Harga", point: "Masih dijual resmi dengan harga lebih terjangkau dari seri 17", talk: "Kalau nggak butuh fitur paling baru, ini lebih hemat, Mas." },
+    { id: "p39", modelId: "m18", category: "Performa", point: "Performa masih kencang untuk kebutuhan harian dan medsos", talk: "Buat pemakaian normal, chipnya masih jauh dari kata lambat." },
+    // iPhone 15
+    { id: "p40", modelId: "m19", category: "Harga", point: "iPhone termurah di lineup resmi saat ini", talk: "Ini entry point paling hemat buat masuk ke ekosistem Apple, Bu." },
+    { id: "p41", modelId: "m19", category: "Performa", point: "Dynamic Island dan performa yang masih relevan untuk harian", talk: "Buat chat, medsos, dan kerja ringan, HP ini masih sangat nyaman dipakai." },
+    // Apple Watch Ultra 3
+    { id: "p42", modelId: "m20", category: "Baterai", point: "Baterai tahan hingga 42 jam pemakaian normal", talk: "Dipakai seharian penuh sambil olahraga masih aman, Pak." },
+    { id: "p43", modelId: "m20", category: "Lainnya", point: "SOS darurat via satelit dan konektivitas 5G", talk: "Di area tanpa sinyal sekalipun masih bisa kirim sinyal darurat, ini penting buat yang suka naik gunung." },
+    // Apple Watch S11
+    { id: "p44", modelId: "m21", category: "Lainnya", point: "Fitur deteksi hipertensi dan pemantauan kesehatan lengkap", talk: "Bukan cuma jam biasa, ini bantu pantau kesehatan harian, Bu." },
+    { id: "p45", modelId: "m21", category: "Desain", point: "Desain tipis dengan layar always-on yang tetap hemat baterai", talk: "Modelnya elegan, dipakai kerja atau formal tetap pas." },
+    // Apple Watch SE3
+    { id: "p46", modelId: "m22", category: "Harga", point: "Cara paling terjangkau masuk ke Apple Watch dengan fitur inti lengkap", talk: "Fitur pentingnya lengkap tapi harganya paling ramah di line-up Apple Watch, Mas." },
+    { id: "p47", modelId: "m22", category: "Lainnya", point: "Layar always-on dan fast charging, upgrade besar dari generasi sebelumnya", talk: "Buat first-time buyer, ini value-nya paling oke." },
+    // Macbook Pro M5
+    { id: "p48", modelId: "m23", category: "Performa", point: "Chip M5 dengan performa AI jauh lebih cepat dari generasi sebelumnya", talk: "Buat edit video atau kerja berat, laptop ini nggak akan ngos-ngosan, Pak." },
+    { id: "p49", modelId: "m23", category: "Layar", point: "Layar Liquid Retina XDR dengan ProMotion 120Hz", talk: "Warna dan ketajamannya kelas atas, enak buat kerja desain atau nonton." },
+    // Macbook Air M5
+    { id: "p50", modelId: "m24", category: "Desain", point: "Bodi tipis tanpa kipas, ringan dibawa kemana saja", talk: "Buat kerja mobile atau kuliah, ini ringan banget dibawa, Bu." },
+    { id: "p51", modelId: "m24", category: "Performa", point: "Chip M5 tetap kencang untuk kerja harian dan multitasking", talk: "Meski tipis, performanya tetap mumpuni buat kerja kantoran." },
+    // Macbook Neo
+    { id: "p52", modelId: "m25", category: "Harga", point: "MacBook termurah yang pernah dirilis Apple", talk: "Ini jalan paling murah buat masuk ke ekosistem Mac, Mas." },
+    { id: "p53", modelId: "m25", category: "Desain", point: "Ringan hanya 1,23kg dengan pilihan warna cerah seperti Citrus dan Blush", talk: "Modelnya fun dan colorful, cocok buat pelajar atau mahasiswa." },
+    // iPad Pro M5
+    { id: "p54", modelId: "m26", category: "Performa", point: "Chip M5 dengan performa AI hingga 3,5x lebih cepat dari M4", talk: "Buat kerja kreatif berat kayak edit video, ini paling kencang di kelas iPad." },
+    { id: "p55", modelId: "m26", category: "Layar", point: "Layar Tandem OLED dengan warna hitam lebih pekat dan kontras tinggi", talk: "Nonton atau desain grafis, warnanya jauh lebih hidup." },
+    // iPad Air M5
+    { id: "p56", modelId: "m27", category: "Performa", point: "Performa seimbang untuk kerja dan hiburan tanpa harga sekelas Pro", talk: "Buat kebutuhan harian sampai kerja ringan, ini pas banget, Bu." },
+    { id: "p57", modelId: "m27", category: "Desain", point: "Tersedia ukuran 11 dan 13 inci sesuai kebutuhan", talk: "Mau yang ringkas atau yang layar lega, dua-duanya ada." },
+    // iPad A16
+    { id: "p58", modelId: "m28", category: "Harga", point: "iPad termurah di line-up saat ini, cocok kebutuhan harian", talk: "Buat nonton, browsing, dan sekolah, ini paling hemat, Mas." },
+    { id: "p59", modelId: "m28", category: "Performa", point: "Chip A16 cukup gesit untuk penggunaan sehari-hari", talk: "Nggak berat-berat amat kebutuhannya, ini udah lebih dari cukup." },
+    // iPad Mini A17 Pro
+    { id: "p60", modelId: "m29", category: "Desain", point: "Bodi ringkas 8,3 inci, gampang dibawa dan dipakai satu tangan", talk: "Buat baca atau catat-catat pakai Pencil, ukurannya paling nyaman, Bu." },
+    { id: "p61", modelId: "m29", category: "Lainnya", point: "Dukung Apple Intelligence dan Apple Pencil Pro", talk: "Fitur AI-nya jalan penuh meski bodinya paling kecil di keluarga iPad." },
+    // Xiaomi 17 Ultra
+    { id: "p62", modelId: "m30", category: "Kamera", point: "Kamera 200MP dengan lensa periskop untuk zoom jauh", talk: "Buat yang suka foto bulan atau objek jauh, hasilnya tetap detail, Bu." },
+    { id: "p63", modelId: "m30", category: "Performa", point: "Snapdragon 8 Elite Gen 5, salah satu chip terkencang saat ini", talk: "Ini kelas atas, main game berat atau edit video berat pun santai." },
+    { id: "p64", modelId: "m30", category: "Baterai", point: "Pengisian cepat 90W HyperCharge", talk: "Ngecas dari 0 ke penuh nggak sampai satu jam, praktis banget." },
+    // Xiaomi 17
+    { id: "p65", modelId: "m31", category: "Performa", point: "Chip flagship yang sama kencangnya dengan seri Ultra", talk: "Performanya setara Ultra tapi harganya lebih ramah, Mas." },
+    { id: "p66", modelId: "m31", category: "Harga", point: "Flagship Xiaomi dengan harga di bawah seri Ultra", talk: "Buat yang mau flagship tapi nggak perlu kamera selengkap Ultra, ini pilihannya." },
+    // Redmi Note 15 Pro+ 5G
+    { id: "p67", modelId: "m32", category: "Kamera", point: "Kamera utama 200MP dengan OIS, stabil walau tangan goyang", talk: "Foto malam atau sambil jalan tetap nggak blur, Pak." },
+    { id: "p68", modelId: "m32", category: "Baterai", point: "Baterai silikon-karbon 6500mAh dengan fast charging 100W", talk: "Baterainya lebih awet dan ngecasnya super cepat, cocok yang mobilitasnya tinggi." },
+    // Redmi Note 15 Pro 5G
+    { id: "p69", modelId: "m33", category: "Kamera", point: "Kamera 200MP dengan layar AMOLED 1,5K kecerahan 3200 nits", talk: "Foto dan tampilan layarnya sekelas HP yang lebih mahal, Bu." },
+    { id: "p70", modelId: "m33", category: "Layar", point: "Layar AMOLED tajam dengan Gorilla Glass Victus 2", talk: "Anti gores dan enak dilihat, aman dipakai harian tanpa khawatir baret." },
+    // Redmi Note 15 5G
+    { id: "p71", modelId: "m34", category: "Kamera", point: "Kamera 108MP dengan OIS dan sertifikasi IP66", talk: "Hasil foto stabil, dan tahan cipratan air kalau kehujanan dikit, Mas." },
+    { id: "p72", modelId: "m34", category: "Harga", point: "Sudah 5G dengan harga masih terjangkau", talk: "Jaringan udah kencang tapi harganya tetap ramah di kantong." },
+    // Redmi Note 15 4G
+    { id: "p73", modelId: "m35", category: "Harga", point: "Paling terjangkau di seri Note 15 dengan baterai besar", talk: "Ini yang paling hemat kalau nggak butuh jaringan 5G dulu, Bu." },
+    { id: "p74", modelId: "m35", category: "Baterai", point: "Baterai 6000mAh, tahan dipakai seharian aktif", talk: "Dipakai nonton atau main game seharian, baterainya nggak gampang habis." },
+    // Find X9 Ultra
+    { id: "p75", modelId: "m36", category: "Kamera", point: "Hasselblad Master Camera 200MP dengan zoom hingga 120x", talk: "Ini kamera paling jago di kelasnya, zoom jauh pun tetap jernih, Mas." },
+    { id: "p76", modelId: "m36", category: "Baterai", point: "Baterai 7050mAh dengan Super VOOC Charging 100W", talk: "Baterainya jumbo, dipakai seharian penuh masih kuat." },
+    { id: "p77", modelId: "m36", category: "Performa", point: "Snapdragon 8 Elite Gen 5 dengan vapor chamber cooling", talk: "Buat gaming lama, suhunya tetap terjaga, nggak gampang panas." },
+    // Oppo Find X9s
+    { id: "p78", modelId: "m37", category: "Kamera", point: "Triple kamera 50MP untuk hasil foto konsisten di segala kondisi", talk: "Foto siang atau malam, hasilnya tetap detail dan warnanya natural, Bu." },
+    { id: "p79", modelId: "m37", category: "Baterai", point: "Baterai 7025mAh dengan Super VOOC Charging 80W", talk: "Baterainya besar, jarang perlu ngecas berkali-kali dalam sehari." },
+    // Oppo Reno16 Pro 5G
+    { id: "p80", modelId: "m38", category: "Kamera", point: "Kamera potret 200MP, hasil selfie dan foto orang lebih detail", talk: "Buat yang suka foto portrait, hasilnya udah kayak difoto profesional." },
+    { id: "p81", modelId: "m38", category: "Desain", point: "Desain tipis dan ringan, nyaman digenggam lama", talk: "Dipegang seharian nggak bikin pegal, modelnya juga elegan." },
+    // Oppo Reno16 5G
+    { id: "p82", modelId: "m39", category: "Layar", point: "Layar AMOLED cerah dengan bodi yang tetap ringkas", talk: "Nonton dan main game, layarnya enak dipandang, Mas." },
+    { id: "p83", modelId: "m39", category: "Baterai", point: "Pengisian cepat Super VOOC untuk baterai selalu siap", talk: "Ngecas sebentar udah cukup buat aktivitas setengah hari." },
+    // Oppo Reno 16F
+    { id: "p84", modelId: "m40", category: "Harga", point: "Harga mid-range terbaik di lini Reno", talk: "Buat yang mau desain Reno tapi budget lebih hemat, ini jawabannya, Bu." },
+    { id: "p85", modelId: "m40", category: "Desain", point: "Desain estetik kekinian dengan pilihan warna menarik", talk: "Tampilannya tetap modis meski di kelas harga menengah." },
+    // Huawei Pura 80 Ultra
+    { id: "p86", modelId: "m41", category: "Kamera", point: "Kamera utama sensor 1 inci, salah satu yang terbesar di kelasnya", talk: "Sensor sebesar ini bikin foto malam hari tetap terang dan detail, Pak." },
+    { id: "p87", modelId: "m41", category: "Kamera", point: "Switchable Dual Telephoto dengan zoom optik 3,7x dan 9,4x", talk: "Dua pilihan zoom optik sekaligus, foto jarak jauh tetap tajam tanpa pecah." },
+    { id: "p88", modelId: "m41", category: "Baterai", point: "Baterai 5700mAh dengan fast charging 100W kabel dan 80W wireless", talk: "Baterainya besar dan ngecasnya cepat banget, Bu." },
+    // Huawei Mate 80 Pro
+    { id: "p89", modelId: "m42", category: "Kamera", point: "True-to-Colour Camera 2.0, warna foto lebih akurat dan detail", talk: "Warna kulit dan objek di foto jadi lebih natural, nggak lebay, Bu." },
+    { id: "p90", modelId: "m42", category: "Baterai", point: "Baterai 5740mAh dengan fast charging 100W kabel dan 80W wireless", talk: "Mau ngecas kabel atau tanpa kabel, sama-sama cepat, Pak." },
+    { id: "p91", modelId: "m42", category: "Desain", point: "Sudah IP68/IP69 dengan pelindung Kunlun Glass anti gores dan banting", talk: "Kalau jatuh atau kena air, HP ini lebih tahan banting dibanding kebanyakan flagship lain." },
+    // Huawei Nova 14 Pro
+    { id: "p92", modelId: "m43", category: "Kamera", point: "Dual kamera depan 50MP, hasil selfie dan video call lebih tajam", talk: "Buat yang sering video call kerjaan atau selfie, hasilnya jernih terus." },
+    { id: "p93", modelId: "m43", category: "Baterai", point: "Fast charging 100W, ngecas cepat meski aktivitas padat", talk: "Sela istirahat makan siang aja udah cukup buat ngecas penuh." },
+    // Motorola Razr Fold
+    { id: "p94", modelId: "m44", category: "Performa", point: "Chipset flagship Snapdragon 8 Gen 5 di bodi lipat", talk: "Performanya setara flagship biasa meski bentuknya lipat, Pak." },
+    { id: "p95", modelId: "m44", category: "Desain", point: "Layar dalam 8,1 inci lebar seperti tablet saat dibuka", talk: "Buka lipatannya langsung dapat layar selebar tablet mini, Bu." },
+    // Motorola Edge 70 Fusion
+    { id: "p96", modelId: "m45", category: "Baterai", point: "Baterai 7000mAh, salah satu yang paling awet di kelasnya", talk: "Dipakai dua hari nonstop pun biasanya masih ada sisa, Bu." },
+    { id: "p97", modelId: "m45", category: "Desain", point: "Bodi tipis dan ringan hanya 159 gram, tapi sudah IP68/IP69", talk: "Ringan digenggam tapi tetap tahan debu dan air, aman kepakai harian." },
+    // Motorola Razr 60
+    { id: "p98", modelId: "m46", category: "Desain", point: "HP lipat dengan harga lebih terjangkau dari Razr Fold", talk: "Mau gaya lipat clamshell tanpa harga flagship penuh, ini pilihannya, Mas." },
+    { id: "p99", modelId: "m46", category: "Harga", point: "Pintu masuk paling hemat ke HP lipat Motorola", talk: "Ini cara paling murah buat coba pengalaman HP lipat, Bu." },
+    // Motorola G06 Power
+    { id: "p100", modelId: "m47", category: "Harga", point: "HP Motorola paling terjangkau dengan baterai besar", talk: "Buat budget terbatas tapi tetap mau baterai awet, ini pas banget, Pak." },
+    { id: "p101", modelId: "m47", category: "Baterai", point: "Baterai 7000mAh, tahan dipakai lama tanpa sering ngecas", talk: "Dipakai harian santai, baterainya betah banget nggak cepat habis." },
+    // Infinix Note 60 Pro
+    { id: "p102", modelId: "m48", category: "Layar", point: "Layar AMOLED 144Hz, tajam dan jernih untuk hiburan", talk: "Nonton atau main game, gambarnya mulus dan warnanya hidup." },
+    { id: "p103", modelId: "m48", category: "Baterai", point: "Baterai 6500mAh dengan wireless charging dan jaminan kesehatan baterai hingga 6 tahun", talk: "Ini salah satu yang paling awet, baterainya juga dijamin nggak cepat drop." },
+    // Infinix Note Edge
+    { id: "p104", modelId: "m49", category: "Desain", point: "Desain super tipis 7,2mm dengan layar AMOLED melengkung", talk: "Tampilannya premium banget buat HP di harga 3 jutaan, Bu." },
+    { id: "p105", modelId: "m49", category: "Baterai", point: "Baterai 6500mAh dengan teknologi self-repairing battery", talk: "Baterainya awet dan punya teknologi perbaikan diri sendiri, lebih tahan lama." },
+    // Infinix Xpad 30E
+    { id: "p106", modelId: "m50", category: "Lainnya", point: "Fitur AI Tutor untuk bantu belajar anak, ada Photo Solving dan Tap to Ask", talk: "Cocok buat anak sekolah, bisa bantu jawab soal otomatis, Pak/Bu." },
+    { id: "p107", modelId: "m50", category: "Baterai", point: "Baterai 7200mAh, tahan hingga 11,6 jam nonton video", talk: "Dipakai anak belajar atau nonton lama, baterainya nggak gampang habis." },
+    // Amazfit Balance 3
+    { id: "p108", modelId: "m51", category: "Baterai", point: "Baterai tahan hingga 21 hari pemakaian", talk: "Charge sekali bisa dipakai berminggu-minggu, nggak perlu bolak-balik ngecas, Bu." },
+    { id: "p109", modelId: "m51", category: "Lainnya", point: "Fitur Hybrid Training dan mode resmi HYROX untuk latihan terstruktur", talk: "Cocok buat yang serius olahraga, ada program latihan yang terarah lewat aplikasi Zepp." },
+    // Amazfit Active 3 Premium
+    { id: "p110", modelId: "m52", category: "Baterai", point: "Baterai tahan hingga 12 hari pemakaian normal", talk: "Buat yang males sering ngecas jam tangan, ini pas banget." },
+    { id: "p111", modelId: "m52", category: "Lainnya", point: "Lebih dari 180 mode olahraga dengan GPS akurat", talk: "Lari, gym, sampai olahraga air, semua bisa terekam otomatis, Mas." },
+    // Amazfit T-Rex 3
+    { id: "p112", modelId: "m53", category: "Baterai", point: "Baterai tahan hingga 27 hari, mode GPS maksimal bisa sampai 180 jam", talk: "Buat naik gunung berhari-hari, jam ini nggak bakal mati duluan, Pak." },
+    { id: "p113", modelId: "m53", category: "Desain", point: "Bodi tangguh 10ATM tahan air dan standar militer", talk: "Kena hujan atau kecebur air, jam ini tetap aman dipakai." },
   ],
 };
 
